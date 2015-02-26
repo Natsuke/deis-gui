@@ -1,11 +1,16 @@
 angular.module('home')
-.controller('LoginController', function($scope, $q, $location, LoginService){
+.controller('LoginController', function($scope, $q, $state, $cookieStore, LoginService){
 
   'use strict';
 
   $scope.submited = false;
 
   $scope.alerts = [];
+
+  $scope.user = {
+    controller: $cookieStore.get('controller'),
+    name: $cookieStore.get('username')
+  };
 
   $scope.login = function() {
     var deferred = $q.defer();
@@ -14,7 +19,7 @@ angular.module('home')
       .then(
         function() {
           deferred.resolve();
-          $location.path('/home');
+          $state.go('dashboard');
         },
         function(data) {
           deferred.reject();

@@ -3,16 +3,17 @@ angular.module('home')
 
     'use strict';
 
-    function login(name, password) {
+    function login(controller, name, password) {
       var request = $http({
         method: 'post',
-        url: 'http://127.0.0.1/v1/auth/login/',
+        url: controller + '/v1/auth/login/',
         data: {
           username: name,
           password: password
         }
       });
 
+      $cookieStore.put('controller', controller)
       $cookieStore.put('username', name);
 
       return request
@@ -54,6 +55,7 @@ angular.module('home')
 
     function logout() {
       $cookieStore.remove('token');
+      $cookieStore.remove('controller')
       $cookieStore.remove('username');
       $location.path('/login');
     }
