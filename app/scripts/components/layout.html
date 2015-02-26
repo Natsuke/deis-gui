@@ -1,0 +1,24 @@
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li><a ui-sref="app.dashboard">Dashboard</a></li>
+      <li><a ui-sref="app.apps">Apps</a></li>
+      <li><a ui-sref="app.cluster">Cluster</a></li>
+      <li><a ui-sref="app.users">Users</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a ui-sref="login">Sign In</a></li>
+      <li><a ng-click="logout()">Log out</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>Deis Control Panel</h1>
+  </div>
+
+  <div ui-view="content"></div>
+</div>

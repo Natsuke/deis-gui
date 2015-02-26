@@ -1,5 +1,5 @@
 angular.module('deis-gui')
-  .service('LoginService', function($http, $q, $cookieStore, $location){
+  .service('LoginService', function($http, $q, $cookieStore, $state){
 
     'use strict';
 
@@ -47,7 +47,7 @@ angular.module('deis-gui')
 
     function isAuthentificated() {
       if(getToken() === undefined) {
-        $location.path('/login');
+        $state.go('login');
       } else {
 
       }
@@ -55,9 +55,7 @@ angular.module('deis-gui')
 
     function logout() {
       $cookieStore.remove('token');
-      $cookieStore.remove('controller')
-      $cookieStore.remove('username');
-      $location.path('/login');
+      $state.go('login');
     }
 
     return({

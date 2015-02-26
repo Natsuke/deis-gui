@@ -3,8 +3,6 @@ angular.module('deis-gui')
 
     'use strict';
 
-    $scope.apps = DeisRestangular.apps.getList().$object;
-
     $scope.logout = function() {
       LoginService.logout();
     };

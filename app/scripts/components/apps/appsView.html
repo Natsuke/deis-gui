@@ -4,14 +4,33 @@
       Apps
     </div>
     <div class="panel-body">
+
       <nav class="navbar navbar-default">
         <div class="container">
           <ul class="nav navbar-nav">
-            <li><a ui-sref="list">List</a></li>
-            <li><a ui-sref="#">Add</a></li>
+            <li><a ng-click="listAll(); tab = 1">List</a></li>
+            <li><a ng-click="tab = 2" >Add</a></li>
           </ul>
         </div>
       </nav>
+
+      <ul>
+        <li ng-show="tab == 1" ng-repeat="app in apps"><a ng-click="appDetail(app.id)">{{ app.id }}</a></li>
+      </ul>
+
+      <div class="container" ng-show="tab == 2">
+        <form name="loginForm" class="form-group" shakeForm novalidate>
+
+          <div class="input-group">
+            <span class="input-group-addon">ID</span>
+            <input type="url" ng-model="newApp.id" required class="form-control">
+          </div>
+          </br>
+          </br>
+          <button ng-click="" class="btn btn-default btn-primary">Push</button>
+        </form>
+      </div>
+
     </div>
   </div>
 </div>

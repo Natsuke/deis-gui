@@ -11,29 +11,55 @@ angular.module('deis-gui', [
     $urlRouterProvider.otherwise('/login');
 
     $stateProvider
-      .state('dashboard', {
-        url: '/dashboard',
-        templateUrl: 'scripts/components/dashboard/dashboardView.html',
-        controller: 'DashboardController'
-      })
-      .state('cluster', {
-        url: '/cluster',
-        templateUrl: 'scripts/components/cluster/clusterView.html',
-        controller: 'ClusterController'
-      })
-      .state('apps', {
-        url: '/apps',
-        templateUrl: 'scripts/components/apps/appsView.html',
-        controller: 'AppsController'
-      })
       .state('login', {
         url: '/login',
         templateUrl: 'scripts/components/login/loginView.html',
         controller: 'LoginController'
       })
-      .state('users', {
-        url: '/users',
-        templateUrl: 'scripts/components/users/usersView.html',
-        controller: 'UsersController'
-      });
+      .state('app', {
+        url: '/app',
+        abstract: true,
+        templateUrl: 'scripts/components/layout.html',
+        controller: function ($scope, LoginService) {
+          $scope.logout = function () {
+            LoginService.logout();
+          };
+        }
+      })
+        .state('app.dashboard', {
+          url: '/dashboard',
+          views: {
+            content: {
+              templateUrl: 'scripts/components/dashboard/dashboardView.html',
+              controller: 'DashboardController'
+            }
+          }
+        })
+        .state('app.cluster', {
+          url: '/cluster',
+          views: {
+            content: {
+              templateUrl: 'scripts/components/cluster/clusterView.html',
+              controller: 'ClusterController'
+            }
+          }
+        })
+        .state('app.apps', {
+          url: '/apps',
+          views: {
+            content: {
+              templateUrl: 'scripts/components/apps/appsView.html',
+              controller: 'AppsController'
+            }
+          }
+        })
+        .state('app.users', {
+          url: '/users',
+          views: {
+            content: {
+              templateUrl: 'scripts/components/users/usersView.html',
+              controller: 'UsersController'
+            }
+          }
+        });
   });

@@ -4,14 +4,54 @@
       Users
     </div>
     <div class="panel-body">
+
       <nav class="navbar navbar-default">
         <div class="container">
           <ul class="nav navbar-nav">
-            <li><a ui-sref="#">List</a></li>
-            <li><a ui-sref="#">Add</a></li>
+            <li><a ng-click="list(); tab = 1; ">List</a></li>
+            <li><a ng-click="tab = 2">Add</a></li>
           </ul>
         </div>
       </nav>
+
+      <div class="container" ng-show="tab == 1">
+        <ul>
+          <li ng-repeat="user in users">{{ user.name }}</li>
+        </ul>
+      </div>
+
+      <div class="container col-md-8" ng-show="tab == 2">
+        <form name="loginForm" class="form-group" shakeForm novalidate>
+
+          <div class="input-group">
+            <span class="input-group-addon">Name *</span>
+            <input type="text" ng-model="newUser.username" required class="form-control">
+          </div>
+          </br>
+          <div class="input-group">
+            <span class="input-group-addon">Password *</span>
+            <input type="text" ng-model="newUser.password" required class="form-control">
+          </div>
+          </br>
+          <div class="input-group">
+            <span class="input-group-addon">E-mail</span>
+            <input type="password" ng-model="newUser.email" class="form-control">
+          </div>
+          </br>
+          <div class="input-group">
+            <span class="input-group-addon">First Name</span>
+            <input type="text" ng-model="newUser.firstName" class="form-control">
+          </div>
+          </br>
+          <div class="input-group">
+            <span class="input-group-addon">Last Name</span>
+            <input type="text" ng-model="newUser.lastName" class="form-control">
+          </div>
+          </br>
+          <button ng-click="add(user)" class="btn btn-default btn-primary">Login</button>
+        </form>
+      </div>
+
     </div>
   </div>
 </div>

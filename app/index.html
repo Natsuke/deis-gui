@@ -24,11 +24,7 @@
 
   <script src="scripts/services/deis-restangular.js"></script>
 
-  <script src="scripts/components/users/usersService.js"></script>
-  <script src="scripts/components/cluster/clusterService.js"></script>
-  <script src="scripts/components/apps/appsService.js"></script>
   <script src="scripts/components/login/loginService.js"></script>
-  <script src="scripts/components/dashboard/dashboardService.js"></script>
 
   <script src="scripts/components/users/usersController.js"></script>
   <script src="scripts/components/cluster/clusterController.js"></script>
@@ -38,29 +34,6 @@
 
 </head>
 <body ng-app="deis-gui">
-
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <ul class="nav navbar-nav">
-          <li><a ui-sref="dashboard">Dashboard</a></li>
-          <li><a ui-sref="apps">Apps</a></li>
-          <li><a ui-sref="cluster">Cluster</a></li>
-          <li><a ui-sref="users">Users</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a ui-sref="login">Sign In</a></li>
-          <li><a ng-click="logout()">Log out</a></li>
-        </ul>
-      </div>
-    </nav>
-
-  <div class="container">
-
-    <div class="page-header">
-      <h1>Deis Control Panel</h1>
-    </div>
-
-    <div ui-view></div>
-  </div>
+  <div ui-view></div>
 </body>
 </html>

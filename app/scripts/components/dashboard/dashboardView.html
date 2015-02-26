@@ -5,20 +5,25 @@
       Dashboard
     </div>
     <div class="panel-body">
+
+
       <nav class="navbar navbar-default">
         <div class="container">
           <ul class="nav navbar-nav">
-            <li><a ui-sref="#">Status</a></li>
+            <li><a ng-click="tab = 1">Status</a></li>
             <li><a ui-sref="#">Logs</a></li>
             <li><a ui-sref="#">Apps Status</a></li>
             <li><a ui-sref="#">Users Logs</a></li>
           </ul>
-
-          <ul>
-            <li ng-repeat="app in apps">{{ app.url }}</li>
-          </li>
         </div>
       </nav>
+
+      <div class="container" ng-show="tab == 1">
+        <div class="col-md-5">
+          
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
