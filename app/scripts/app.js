@@ -1,7 +1,8 @@
-angular.module('home', [
+angular.module('deis-gui', [
   'ui.router',
   'ngCookies',
-  'ngAnimate'
+  'ngAnimate',
+  'restangular'
 ])
   .config(function($stateProvider, $urlRouterProvider){
 

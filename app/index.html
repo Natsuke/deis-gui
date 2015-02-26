@@ -16,9 +16,13 @@
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+  <script src="bower_components/restangular/dist/restangular.js"></script>
   <!-- endbower -->
 
   <script src="scripts/app.js"></script>
+
+  <script src="scripts/services/deis-restangular.js"></script>
 
   <script src="scripts/components/users/usersService.js"></script>
   <script src="scripts/components/cluster/clusterService.js"></script>
@@ -33,7 +37,7 @@
   <script src="scripts/components/dashboard/dashboardController.js"></script>
 
 </head>
-<body ng-app="home">
+<body ng-app="deis-gui">
 
     <nav class="navbar navbar-default">
       <div class="container">

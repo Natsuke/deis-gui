@@ -1,4 +1,4 @@
-angular.module('home')
+angular.module('deis-gui')
   .service('DashboardService', function($http, $cookieStore) {
 
     'use strict';

@@ -1,4 +1,4 @@
-angular.module('home')
+angular.module('deis-gui')
   .service('LoginService', function($http, $q, $cookieStore, $location){
 
     'use strict';

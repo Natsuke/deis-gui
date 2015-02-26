@@ -1,4 +1,4 @@
-	
+
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -13,6 +13,10 @@
             <li><a ui-sref="#">Apps Status</a></li>
             <li><a ui-sref="#">Users Logs</a></li>
           </ul>
+
+          <ul>
+            <li ng-repeat="app in apps">{{ app.url }}</li>
+          </li>
         </div>
       </nav>
     </div>
