@@ -1,5 +1,7 @@
 /* global module, require */
 
+var httpProxy = require('http-proxy');
+
 module.exports = function (grunt){
 
   'use strict';
@@ -9,7 +11,10 @@ module.exports = function (grunt){
 
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
+    dist: 'dist',
+    proxy: {
+      host: 'deis.local3.deisapp.com'
+    }
   };
 
   grunt.initConfig({
@@ -55,7 +60,36 @@ module.exports = function (grunt){
                 '/bower_components',
                 connect.static('./bower_components')
               ),
-              connect.static(appConfig.app)
+              connect.static(appConfig.app),
+
+              connect.compress({
+                // Pass to connect.compress() the options
+                // that you need, just for show the example
+                // we use threshold to 1
+                threshold: 1
+              }),
+              connect().use(
+                '/api',
+                (function () {
+                  var proxy = httpProxy.createProxyServer({});
+
+                  proxy.on('error', function (err, req, res) {
+                    console.error(err);
+
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.write('Error: ' + err.code);
+                    res.end();
+                  });
+
+                  return function (req, res) {
+                    delete req.headers['accept-encoding'];
+                    req.headers.host = appConfig.proxy.host;
+                    proxy.web(req, res, {
+                      target: 'http://' + appConfig.proxy.host
+                    });
+                  };
+                })()
+              )
             ];
           }
         }
