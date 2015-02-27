@@ -1,0 +1,18 @@
+<div class="col-md-10" ng-init="appContDetail(id)">
+  <div class="col-md-3"  ng-repeat="app in appCont.results">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        Container
+      </div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item">app: {{ app.app }}</li>
+          <li class="list-group-item">owner: {{ app.owner }}</li>
+          <li class="list-group-item">release: {{ app.release }}</li>
+          <li class="list-group-item">type: {{ app.type }}</li>
+          <li class="list-group-item">state: {{ app.state }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

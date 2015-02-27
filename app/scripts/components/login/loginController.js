@@ -19,7 +19,7 @@ angular.module('deis-gui')
       .then(
         function() {
           deferred.resolve();
-          $state.go('app.dashboard');
+          $state.go('app.apps.list');
         },
         function(data) {
           deferred.reject();

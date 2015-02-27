@@ -4,7 +4,7 @@ angular.module('deis-gui', [
   'ngAnimate',
   'restangular'
 ])
-  .config(function($stateProvider, $urlRouterProvider){
+  .config(function($stateProvider, $urlRouterProvider) {
 
     'use strict';
 
@@ -26,40 +26,68 @@ angular.module('deis-gui', [
           };
         }
       })
-        .state('app.dashboard', {
-          url: '/dashboard',
-          views: {
-            content: {
-              templateUrl: 'scripts/components/dashboard/dashboardView.html',
-              controller: 'DashboardController'
-            }
-          }
-        })
-        .state('app.cluster', {
-          url: '/cluster',
-          views: {
-            content: {
-              templateUrl: 'scripts/components/cluster/clusterView.html',
-              controller: 'ClusterController'
-            }
-          }
-        })
         .state('app.apps', {
           url: '/apps',
+          abstract: true,
           views: {
             content: {
-              templateUrl: 'scripts/components/apps/appsView.html',
-              controller: 'AppsController'
+              template: '<div ui-view="subcontent"></div>'
             }
           }
         })
-        .state('app.users', {
-          url: '/users',
-          views: {
-            content: {
-              templateUrl: 'scripts/components/users/usersView.html',
-              controller: 'UsersController'
+          .state('app.apps.list', {
+            url: '/list',
+            views: {
+              subcontent: {
+                templateUrl: 'scripts/components/apps/appsView.html',
+                controller: 'AppsController'
+              }
             }
-          }
-        });
+          })
+          .state('app.apps.app', {
+            url: '/:id',
+            abstract: true,
+            views: {
+              subcontent: {
+                templateUrl: 'scripts/components/app/appView.html',
+                controller: 'AppsController'
+              }
+            }
+          })
+            .state('app.apps.app.dashboard', {
+              url: '/dashboard',
+              views: {
+                subsubcontent: {
+                  templateUrl: 'scripts/components/app/appDashboardView.html',
+                  controller: 'AppsController'
+                }
+              }
+            })
+            .state('app.apps.app.scale', {
+              url: '/scale',
+              views: {
+                subsubcontent: {
+                  templateUrl: 'scripts/components/app/appScaleView.html',
+                  controller: 'AppsController'
+                }
+              }
+            })
+            .state('app.apps.app.rollback', {
+              url: '/rollback',
+              views: {
+                subsubcontent: {
+                  templateUrl: 'scripts/components/app/appRollbackView.html',
+                  controller: 'AppsController'
+                }
+              }
+            })
+            .state('app.apps.app.logs', {
+              url: '/logs',
+              views: {
+                subsubcontent: {
+                  templateUrl: 'scripts/components/app/appLogsView.html',
+                  controller: 'AppsController'
+                }
+              }
+            });
   });
