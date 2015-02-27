@@ -10,10 +10,10 @@
       <nav class="navbar navbar-default">
         <div class="container">
           <ul class="nav navbar-nav">
-            <li><a ng-click="tab = 1" href="">Status</a></li>
-            <li><a ui-sref="#" href="">Logs</a></li>
-            <li><a ui-sref="#" href="">Apps Status</a></li>
-            <li><a ui-sref="#" href="">Users Logs</a></li>
+            <li><a ng-click="tab=1" href="">Status</a></li>
+            <li><a ng-click="tab=2" href="" href="">Logs</a></li>
+            <li><a ng-click="listApps(); tab=3" href="">Apps Status</a></li>
+            <li><a ng-click="tab=4" href="">Users Logs</a></li>
           </ul>
         </div>
       </nav>
@@ -22,6 +22,64 @@
         <div class="col-md-5">
 
         </div>
+      </div>
+
+      <div class="container" ng-show="tab == 2">
+
+      </div>
+
+      <div class="container" ng-show="tab == 3">
+        <div class="col-md-4">
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              App runing
+            </div>
+
+            <div class="panel-body">
+              <ul class="list-group">
+                <li ng-repeat="app in apps" class="list-group-item"><a ng-click="appContDetail(app.id)" href="">{{ app.id }}</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+
+            <div class="panel-heading">
+              Containers <span class="badge">{{ appCont.count }}</span>
+            </div>
+
+            <div class="panel-body">
+              <input type="number" ng-model="scale">
+              <button ng-click="scaleApp(id, scale)">scale</button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-11">
+          <div class="col-md-3" ng-repeat="app in appCont.results">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Container
+              </div>
+
+              <div class="panel-heading">
+                <ul class="list-group">
+                  <li class="list-group-item">app: {{ app.app }}</li>
+                  <li class="list-group-item">owner: {{ app.owner }}</li>
+                  <li class="list-group-item">release {{ app.release }}</li>
+                  <li class="list-group-item">type: {{ app.type }}</li>
+                  <li class="list-group-item">state: {{ app.state }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
