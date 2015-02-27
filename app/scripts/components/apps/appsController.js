@@ -11,4 +11,8 @@ angular.module('deis-gui')
       $scope.app = DeisRestangular.one('apps',id).get().$object;
     }
 
+    $scope.removeApp = function(id) {
+      DeisRestangular.one('apps', id).remove();
+    }
+
   });

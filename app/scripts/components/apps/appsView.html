@@ -8,15 +8,51 @@
       <nav class="navbar navbar-default">
         <div class="container">
           <ul class="nav navbar-nav">
-            <li><a ng-click="listAll(); tab = 1">List</a></li>
-            <li><a ng-click="tab = 2" >Add</a></li>
+            <li><a ng-click="listAll(); tab = 1" href="">List</a></li>
+            <li><a ng-click="tab = 2" href="">Add</a></li>
           </ul>
         </div>
       </nav>
+      <div class="container" ng-show="tab == 1">
+        <div class="col-md-4">
+          <div class="panel panel-default">
 
-      <ul>
-        <li ng-show="tab == 1" ng-repeat="app in apps"><a ng-click="appDetail(app.id)">{{ app.id }}</a></li>
-      </ul>
+            <div class="panel-heading">
+              List of all App
+            </div>
+
+            <div class="panel-body">
+              <ul class="list-group">
+                <li ng-show="tab == 1" ng-repeat="app in apps" class="list-group-item"><a ng-click="appDetail(app.id)" href="">{{ app.id }}</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              {{ app.id }}
+              <button ng-click="removeApp(app.id)">Remove</button>
+            </div>
+
+            <div class="panel-body">
+
+              <ul class="list-group">
+                <li class="list-group-item">url: {{ app.url }}</li>
+                <li class="list-group-item">owner: {{ app.owner }}</li>
+                <li class="list-group-item">created at: {{ app.created | date }}</li>
+                <li class="list-group-item">updated at: {{ app.updated | date:'medium' }}</li>
+                <li class="list-group-item">web: {{ app.structure.web }}</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
 
       <div class="container" ng-show="tab == 2">
         <form name="loginForm" class="form-group" shakeForm novalidate>
@@ -28,6 +64,7 @@
           </br>
           </br>
           <button ng-click="" class="btn btn-default btn-primary">Push</button>
+
         </form>
       </div>
 

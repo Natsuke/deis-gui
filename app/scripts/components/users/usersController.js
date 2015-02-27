@@ -6,7 +6,14 @@ angular.module('deis-gui')
     }
 
     $scope.add  = function() {
-      DeisRestangular.put();
+      var user = {
+        "username": $scope.newUser.username,
+        "password": $scope.newUser.password,
+        "email": $scope.newUser.email,
+        "first_name": $scope.newUser.firstName,
+        "last_name": $scope.newUser.lastName
+      }
+      DeisRestangular.one('auth').post('register/', user);
     }
 
   });
