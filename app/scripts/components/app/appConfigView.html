@@ -1,0 +1,23 @@
+<div class="list-group" ng-init="listConfig()">
+  <div class="list-group-item">
+    owner: {{ config.owner }}
+  </div>
+  <div class="list-group-item">
+    cpu <span class="pull-right glyphicon glyphicon-plus"></span>
+    <div class="list-group-item" ng-repeat="cpu in config.cpu">
+      {{ cpu }}
+    </div>
+  </div>
+  <div class="list-group-item">
+    memory<span class="pull-right glyphicon glyphicon-plus"></span>
+    <div class="list-group-item" ng-repeat="memory in config.memory">
+      {{ memory }}
+    </div>
+  </div>
+  <div class="list-group-item">
+    tags<span class="pull-right glyphicon glyphicon-plus"></span>
+    <div class="list-group-item" ng-repeat="tag in config.tags">
+      {{ tag }}
+    </div>
+  </div>
+</div>

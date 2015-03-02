@@ -2,19 +2,21 @@
 
   <div class="panel-heading">
 
-    <a href="" ui-sref="app.apps.app.dashboard({ id: id })"><h4>{{ id }}</h4></a>
-    <a ui-sref="app.apps.list" href="">Back to list</a>
+    <span class="h4"><a href="" ui-sref="app.apps.app.dashboard({ id: id })">{{ id }}</a></span>
+    <span class="pull-right"><a ui-sref="app.apps.list" href="">Back to list</a></span>
 
   </div>
 
-  <div class="panel-body" ng-init="appContDetail(id)">
+  <div class="panel-body">
 
     <nav class="navbar navbar-default">
       <ul class="nav navbar-nav">
-        <li><a href="#"><span class="glyphicon glyphicon-remove"></span></a></li>
+        <li><a ng-click="remove()" href="#"><span class="glyphicon glyphicon-remove"></span></a></li>
         <li><a ui-sref="app.apps.app.logs({ id: id})" href="#">Logs</a></li>
-        <li><a ui-sref="app.apps.app.rollback({id:id})" href="#">Rolback</a></li>
+        <li><a ui-sref="app.apps.app.rollback({id:id})" href="#">Rollback</a></li>
         <li><a ui-sref="app.apps.app.scale({id:id})" href="#">Scale</a></li>
+        <li><a ui-sref="app.apps.app.config({id:id})" href="#">Config</a></li>
+        <li><a ui-sref="app.apps.app.perms({id:id})" href="#">Permissions</a></li>
       </ul>
     </nav>
 

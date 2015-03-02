@@ -1,3 +1,7 @@
-<ul class="list-group" ng-init="listVersion(id)">
-  <li ng-repeat="version in versions.results"><input type="radio" ng-model="release">{{ version.version }}</li>
-</ul>
+<div class="input-group" ng-init="listVersion()">
+  <div class="input-group-addon" ng-repeat="version in versions.results">
+    <input type="radio" name="release" ng-model="app.release" ng-value="{{ version.version }}">{{ version.version }}
+  </div>
+
+  <button class="btn btn-primary" ng-click="rollback(app.release)">Rollback</button>
+</div>

@@ -1,4 +1,4 @@
-/* global module, require */
+/* global module, require, console */
 
 var httpProxy = require('http-proxy');
 

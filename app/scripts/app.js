@@ -50,7 +50,7 @@ angular.module('deis-gui', [
             views: {
               subcontent: {
                 templateUrl: 'scripts/components/app/appView.html',
-                controller: 'AppsController'
+                controller: 'AppDashboardController'
               }
             }
           })
@@ -59,7 +59,7 @@ angular.module('deis-gui', [
               views: {
                 subsubcontent: {
                   templateUrl: 'scripts/components/app/appDashboardView.html',
-                  controller: 'AppsController'
+                  controller: 'AppDashboardController'
                 }
               }
             })
@@ -68,7 +68,7 @@ angular.module('deis-gui', [
               views: {
                 subsubcontent: {
                   templateUrl: 'scripts/components/app/appScaleView.html',
-                  controller: 'AppsController'
+                  controller: 'AppScaleController'
                 }
               }
             })
@@ -77,7 +77,7 @@ angular.module('deis-gui', [
               views: {
                 subsubcontent: {
                   templateUrl: 'scripts/components/app/appRollbackView.html',
-                  controller: 'AppsController'
+                  controller: 'AppRollbackController'
                 }
               }
             })
@@ -86,8 +86,72 @@ angular.module('deis-gui', [
               views: {
                 subsubcontent: {
                   templateUrl: 'scripts/components/app/appLogsView.html',
-                  controller: 'AppsController'
+                  controller: 'AppLogsController'
                 }
               }
-            });
+            })
+            .state('app.apps.app.config', {
+              url: '/config',
+              views: {
+                subsubcontent: {
+                  templateUrl: 'scripts/components/app/appConfigView.html',
+                  controller: 'AppConfigController'
+                }
+              }
+            })
+            .state('app.apps.app.perms', {
+              url: '/perms',
+              views: {
+                subsubcontent: {
+                  templateUrl: 'scripts/components/app/appPermsView.html',
+                  controller: 'AppPermsController'
+                }
+              }
+            })
+          .state('app.users', {
+            url: '/users',
+            abstract: true,
+            views: {
+              content: {
+                template: '<div ui-view="content"></div>'
+              }
+            }
+          })
+            .state('app.users.list', {
+              url: '/list',
+              views: {
+                content: {
+                  templateUrl: 'scripts/components/users/usersView.html',
+                  controller: 'UsersController'
+                }
+              }
+            })
+            .state('app.users.add', {
+              url: '/add',
+              views: {
+                content: {
+                  templateUrl: 'scripts/components/users/usersAddView.html',
+                  controller: 'UsersController'
+                }
+              }
+            })
+            .state('app.users.user', {
+              url: '/:id',
+              abstract: true,
+              views: {
+                content: {
+                  templateUrl: 'scripts/components/users/usersView.html',
+                  controller: 'UsersController'
+                }
+              }
+            })
+              .state('app.users.user.dashboard', {
+                url: '/dashboard',
+                views: {
+                  content: {
+                    templateUrl: 'scripts/components/users/userView.html',
+                    controller: 'UserController'
+                  }
+                }
+              });
   });

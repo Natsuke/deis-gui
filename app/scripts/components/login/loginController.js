@@ -1,3 +1,4 @@
+/* global element */
 angular.module('deis-gui')
 .controller('LoginController', function($scope, $q, $state, $cookieStore, LoginService){
 

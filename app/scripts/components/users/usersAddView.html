@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    Add
+  </div>
+
+  <div class="panel-body">
+    <div class="col-md-6 col-md-offset-3">
+    <div class="input-group">
+      <span class="input-group-addon">Username</span>
+      <input type="text" required ng-model="newUser.username" class="form-control">
+    </div>
+    </br>
+    <div class="input-group">
+      <span class="input-group-addon">First Name</span>
+      <input type="text" ng-model="newUser.firstName" class="form-control">
+    </div>
+    </br>
+    <div class="input-group">
+      <span class="input-group-addon">Last Name</span>
+      <input type="text" ng-model="newUser.lastName" class="form-control">
+    </div>
+    </br>
+    <div class="input-group">
+      <span class="input-group-addon">E-mail</span>
+      <input type="email" ng-model="newUser.email" class="form-control">
+    </div>
+    </br>
+    <div class="input-group">
+      <span class="input-group-addon">Password</span>
+      <input type="password" required ng-model="newUser.password" class="form-control">
+    </div>
+    </br>
+    <button class="btn btn-default" ng-click="add()">Add</button>
+</div>
+    </div>
+  </div>
+
+</div>

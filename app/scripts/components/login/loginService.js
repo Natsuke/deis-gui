@@ -13,7 +13,7 @@ angular.module('deis-gui')
         }
       });
 
-      $cookieStore.put('controller', controller)
+      $cookieStore.put('controller', controller);
       $cookieStore.put('username', name);
 
       return request

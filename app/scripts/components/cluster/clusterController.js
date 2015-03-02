@@ -1,4 +1,6 @@
 angular.module('deis-gui')
-  .controller('ClusterController', function($scope) {
+  .controller('ClusterController', function() {
+
+    'use strict';
 
   });
