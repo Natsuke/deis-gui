@@ -1,6 +1,15 @@
-<button class="btn btn-default">Add Permission</button>
-<div class="list-group" ng-init="listPerms()">
-  <div class="list-group-item" ng-repeat="perm in perms">
+<div class="input-group">
+  <input type="text" ng-model="perm.new" class="form-control">
+  <div class="input-group-btn">
+    <button class="btn btn-default" ng-click="add(perm.new)">Add Permission</button>
+  </div>
+</div>
+
+<div class="list-group" ng-init="list()">
+  <div class="list-group-item" ng-repeat="perm in perms.users">
     {{ perm }}
+    <a ng-click="remove(perm)" href="">
+      <span class="pull-right glyphicon glyphicon-remove"></span>
+    </a>
   </div>
 </div>

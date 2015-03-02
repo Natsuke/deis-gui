@@ -6,7 +6,7 @@ angular.module('deis-gui')
 
     $scope.id = $stateParams.id;
 
-    $scope.listPerms = function() {
+    $scope.list = function() {
       DeisRestangular
         .one('apps', $scope.id)
         .one('perms')
@@ -18,4 +18,33 @@ angular.module('deis-gui')
           console.log(message);
         });
     };
+
+    $scope.add = function(newPerm) {
+      var perm = {
+        'username': newPerm
+      };
+      DeisRestangular
+        .one('apps', $scope.id)
+        .post('perms', perm)
+        .then(function() {
+          $scope.list();
+        })
+        .catch(function(message) {
+          console.log(message);
+        });
+    };
+
+    $scope.remove = function(perm) {
+      DeisRestangular
+        .one('apps', $scope.id)
+        .one('perms', perm)
+        .remove()
+        .then(function() {
+          $scope.list();
+        })
+        .catch(function(message) {
+          console.log(message);
+        });
+    };
+
   });
