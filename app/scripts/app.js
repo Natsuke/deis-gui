@@ -108,6 +108,15 @@ angular.module('deis-gui', [
                 }
               }
             })
+            .state('app.apps.app.domains', {
+              url: '/domains',
+              views: {
+                subsubcontent: {
+                  templateUrl: 'scripts/components/app/appDomainsView.html',
+                  controller: 'AppDomainsController'
+                }
+              }
+            })
           .state('app.users', {
             url: '/users',
             abstract: true,
