@@ -1,5 +1,7 @@
-<div class="input-group">
-  Web: <input class="form-control" type="number" ng-model="webScale"></br>
-  Cmd: <input class="form-control" type="number" ng-model="cmdScale"></br>
-  <button ng-click="scaleApp(webScale)">Scale</button>
+<div class="input-group" ng-init="listTypes()">
+  <div class="input-group-item" ng-repeat="type in types">
+    <input type="radio" name="type" ng-model="$parent.scaleType" ng-value="type">{{ type }}
+  </div>
+  <input type="number" ng-model="scaling" class="form-control">
+  <button class="btn btn-primary" ng-click="scale(scaleType, scaling)">Scale</button>
 </div>

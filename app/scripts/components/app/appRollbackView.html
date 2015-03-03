@@ -12,9 +12,9 @@
       <td>{{ version.created }}</td>
       <td>{{ version.updated }}</td>
       <td>{{ version.summary }}</td>
-      <td><input type="radio" name="rollback" ng-value="version.version" ng-model="app.release"></td>
+      <td><input type="radio" name="rollback" ng-value="version.version" ng-model="$parent.release"></td>
     </tr>
   </table>
 
-  <button class="btn btn-primary" ng-click="rollback(app.release)">Rollback</button>
+  <button class="btn btn-primary" ng-click="rollback(release)">Rollback</button>
 </div>
