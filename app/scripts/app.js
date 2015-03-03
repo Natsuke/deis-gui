@@ -167,5 +167,32 @@ angular.module('deis-gui', [
                     controller: 'UserController'
                   }
                 }
+              })
+            .state('app.keys', {
+              url: '/keys',
+              abstract: true,
+              views: {
+                content: {
+                  template: '<div ui-view="content"></div>'
+                }
+              }
+            })
+              .state('app.keys.list', {
+                url: '/list',
+                views: {
+                  content: {
+                    templateUrl: 'scripts/components/keys/keysListView.html',
+                    controller: 'KeysController'
+                  }
+                }
+              })
+              .state('app.keys.add', {
+                url: '/add',
+                views: {
+                  content: {
+                    templateUrl: 'scripts/components/keys/keyAddView.html',
+                    controller: 'KeysController'
+                  }
+                }
               });
   });

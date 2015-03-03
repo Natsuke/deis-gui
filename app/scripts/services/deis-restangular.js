@@ -19,7 +19,7 @@ angular.module('deis-gui')
       });
 
     DeisRestangular.apps = DeisRestangular.all('apps');
-    DeisRestangular.users = DeisRestangular.all('users');
+    DeisRestangular.keys = DeisRestangular.all('keys');
 
     return DeisRestangular;
   });
