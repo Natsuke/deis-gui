@@ -20,11 +20,7 @@ angular.module('deis-gui', [
         url: '/app',
         abstract: true,
         templateUrl: 'scripts/components/layout.html',
-        controller: function ($scope, LoginService) {
-          $scope.logout = function () {
-            LoginService.logout();
-          };
-        }
+        controller: 'UserController'
       })
         .state('app.apps', {
           url: '/apps',
