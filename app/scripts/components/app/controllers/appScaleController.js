@@ -14,7 +14,7 @@ angular.module('deis-gui')
         .then(function(res) {
           var container = res.results;
           $scope.types = [];
-          container.forEach(function(arg, index, tab) {
+          container.forEach(function(arg) {
             if($scope.types.indexOf(arg.type)) {
               $scope.types.push(arg.type);
             }
@@ -27,7 +27,7 @@ angular.module('deis-gui')
 
     $scope.scale = function(type, number) {
       if(number >= 0) {
-        var scaling = {}
+        var scaling = {};
         scaling[type] = number;
         DeisRestangular
           .one('apps', $scope.id)

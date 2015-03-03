@@ -16,9 +16,10 @@ angular.module('deis-gui')
     };
 
     $scope.add = function(id, key) {
-      var rsa = {}
-      rsa['id'] = id;
-      rsa['public'] = key;
+      var rsa = {
+        'id': id,
+        'public': key
+      };
       DeisRestangular
         .one('keys')
         .post('', rsa)
