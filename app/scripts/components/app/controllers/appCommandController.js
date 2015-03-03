@@ -14,11 +14,11 @@ angular.module('deis-gui')
         .one('apps', $scope.id)
         .post('run', runCommand)
         .then(function(res) {
-          $scope.res = res;
+          $scope.res = res[1];
         })
         .catch(function(message) {
           console.log(message);
         });
-    }
+    };
 
   });
