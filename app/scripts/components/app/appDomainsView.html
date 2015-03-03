@@ -4,12 +4,12 @@
     <button class="btn btn-default" ng-click="add(domain.new)">Add Domain</button>
   </div>
 </div>
-
+</br>
 <div class="list-group" ng-init="list()">
   <div class="list-group-item" ng-repeat="domain in domains.results" ng-show="domains.count > 0">
     {{ domain.domain }}
     <a ng-click="remove(domain.domain)" href="">
       <span class="pull-right glyphicon glyphicon-remove"></span>
-    </a>  
+    </a>
   </div>
 </div>
