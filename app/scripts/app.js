@@ -117,6 +117,15 @@ angular.module('deis-gui', [
                 }
               }
             })
+            .state('app.apps.app.command', {
+              url: '/comand',
+              views: {
+                subsubcontent: {
+                  templateUrl: 'scripts/components/app/appCommandView.html',
+                  controller: 'AppCommandController'
+                }
+              }
+            })
           .state('app.users', {
             url: '/users',
             abstract: true,
