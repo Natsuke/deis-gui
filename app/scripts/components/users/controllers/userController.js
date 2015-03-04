@@ -5,16 +5,19 @@ angular.module('deis-gui')
     'use strict';
 
     $scope.remove = function() {
-      DeisRestangular
-        .one('auth', 'cancel/')
-        .remove()
-        .then(function() {
-          $state.go('login');
-        })
-        .catch(function(message) {
-          console.log(message);
-        });
+      if(confirm('Supprimer le compte courant ?')) {
+        DeisRestangular
+          .one('auth', 'cancel/')
+          .remove()
+          .then(function() {
+            $state.go('login');
+          })
+          .catch(function(message) {
+            console.log(message);
+          });
+      }
     };
+
 
     $scope.logout = function() {
       LoginService.logout();
