@@ -1,4 +1,4 @@
-/* global console */
+/* global console, confirm */
 angular.module('deis-gui')
   .controller('UserController', function($scope, DeisRestangular, LoginService, $state) {
 
