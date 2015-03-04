@@ -1,0 +1,14 @@
+<table class="table" ng-init="list()">
+  <tr>
+    <th>sha</th>
+    <th>created</th>
+    <th>updated</th>
+    <th>procfile</th>
+  </tr>
+  <tr ng-repeat="build in builds.results">
+    <td>{{ build.sha }}</td>
+    <td>{{build.created}}</td>
+    <td>{{build.updated}}</td>
+    <td>{{build.procfile}}</td>
+  </tr>
+</table>

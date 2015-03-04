@@ -122,6 +122,15 @@ angular.module('deis-gui', [
                 }
               }
             })
+            .state('app.apps.app.builds', {
+              url: '/builds',
+              views: {
+                subsubcontent: {
+                  templateUrl: 'scripts/components/app/appBuildsView.html',
+                  controller: 'AppBuildsController'
+                }
+              }
+            })
           .state('app.users', {
             url: '/users',
             abstract: true,
