@@ -1,7 +1,13 @@
 <div class="input-group" ng-init="listTypes()">
-  <div class="input-group-item" ng-repeat="type in types">
-    <input type="radio" name="type" ng-model="$parent.scaleType" ng-value="type">{{ type }}
+  <div class="col-md-12" ng-repeat="type in types">
+    <div class="col-md-3">
+      <input type="radio" name="type" ng-model="$parent.scaleType" ng-value="type"> <span class="label label-primary">{{ type }}</span>
+    </div>
+    <div class="col-md-6">
+      <input type="number" ng-model="scaling" class="form-control">
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-primary" ng-click="scale(scaleType, scaling)">Scale</button>
+    </div>
   </div>
-  <input type="number" ng-model="scaling" class="form-control">
-  <button class="btn btn-primary" ng-click="scale(scaleType, scaling)">Scale</button>
 </div>

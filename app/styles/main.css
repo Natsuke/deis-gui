@@ -1,0 +1,15 @@
+/*
+
+    CSS Style for Deis Control Panel
+    Author: Vanbutsele Andy
+
+*/
+
+pre {
+  height: auto;
+  max-height: 800px;
+  overflow: auto;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: pre;
+}
