@@ -19,4 +19,35 @@ angular.module('deis-gui')
         });
     };
 
+    $scope.add = function(option, key, value) {
+      var newConf = {};
+      newConf[option] = {};
+      newConf[option][key] = value;
+      DeisRestangular
+        .one('apps', $scope.id)
+        .post('config', newConf)
+        .then(function() {
+
+        })
+        .catch(function(message) {
+          console.log(message);
+        });
+    };
+
+    $scope.unset = function(option, key) {
+      console.log(option + ":" + key)
+      var unSetConf = {};
+      unSetConf[option] = {};
+      unSetConf[option][key] = null;
+      DeisRestangular
+        .one('apps', $scope.id)
+        .post('config', unSetConf)
+        .then(function() {
+          $scope.listConfig();
+        })
+        .catch(function(message) {
+          console.log(message);
+        });
+    };
+
   });

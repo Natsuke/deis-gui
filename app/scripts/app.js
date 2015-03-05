@@ -95,6 +95,15 @@ angular.module('deis-gui', [
                 }
               }
             })
+              .state('app.apps.app.config.add', {
+                url: '/add',
+                views: {
+                  content: {
+                    templateUrl: 'scripts/components/app/appConfigAddView.html',
+                    controller: 'AppConfigController'
+                  }
+                }
+              })
             .state('app.apps.app.perms', {
               url: '/perms',
               views: {

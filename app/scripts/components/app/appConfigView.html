@@ -1,23 +1,36 @@
-<div class="list-group" ng-init="listConfig()">
-  <div class="list-group-item">
-    owner: {{ config.owner }}
-  </div>
-  <div class="list-group-item">
-    cpu <span class="pull-right glyphicon glyphicon-plus"></span>
-    <div class="list-group-item" ng-repeat="cpu in config.cpu">
-      {{ cpu }}
+<div class="col-md-6 col-md-offset-3">
+  <div class="list-group" ng-init="listConfig()">
+    <div class="list-group-item" ng-repeat="(key, conf) in config track by $index" ng-show="conf && !(conf.length == 0)">
+      <span ng-show="conf.length != null">
+        <b>{{ key }}</b>
+      </span>
+      <div class="pull-right" ng-show="conf.length != null">
+        {{ conf }}
+      </div>
+
+      <div class="panel panel-default" ng-show="conf.length == null">
+        <div class="panel-heading">
+          <b>{{ key }}</b>
+        </div>
+
+        <div class="panel-body">
+          <div class="col-md-12" ng-repeat="(k,c) in conf track by $index">
+            <div class="col-md-5">
+              <b>{{ k }}</b>
+            </div>
+            <div class="col-md-6">
+              {{ c }}
+            </div>
+            <div class="col-md-1">
+              <a href="#" ng-click="unset(key, k)"><span class="glyphicon glyphicon-minus"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="list-group-item">
-    memory<span class="pull-right glyphicon glyphicon-plus"></span>
-    <div class="list-group-item" ng-repeat="memory in config.memory">
-      {{ memory }}
-    </div>
-  </div>
-  <div class="list-group-item">
-    tags<span class="pull-right glyphicon glyphicon-plus"></span>
-    <div class="list-group-item" ng-repeat="tag in config.tags">
-      {{ tag }}
-    </div>
-  </div>
+
+  <button class="btn btn-primary" ui-sref="app.apps.app.config.add({id: id})">Add Config</button>
+  <div ui-view="content"></div>
 </div>
