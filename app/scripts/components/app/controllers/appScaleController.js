@@ -9,14 +9,16 @@ angular.module('deis-gui')
     $scope.listTypes = function() {
       DeisRestangular
         .one('apps', $scope.id)
-        .one('containers')
+        .one('builds')
         .get()
         .then(function(res) {
-          var container = res.results;
+          var builds = res.results;
           $scope.types = [];
-          container.forEach(function(arg) {
-            if($scope.types.indexOf(arg.type)) {
-              $scope.types.push(arg.type);
+          builds.forEach(function(arg) {
+            for(var r in arg.procfile) {
+              if($scope.types.indexOf(r)) {
+                $scope.types.push(r);
+              }
             }
           });
         })
