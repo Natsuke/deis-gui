@@ -35,7 +35,6 @@ angular.module('deis-gui')
     };
 
     $scope.unset = function(option, key) {
-      console.log(option + ":" + key)
       var unSetConf = {};
       unSetConf[option] = {};
       unSetConf[option][key] = null;
