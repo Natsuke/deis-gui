@@ -4,6 +4,4 @@
   <button class="btn btn-primary" ng-click="run(command)">Run</button>
 </form>
 
-<pre>
-  {{ res }}
-</pre>
+<pre ng-if="res">{{ res }}</pre>
