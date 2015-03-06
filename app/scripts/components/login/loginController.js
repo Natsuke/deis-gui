@@ -9,8 +9,8 @@ angular.module('deis-gui')
   $scope.alerts = [];
 
   $scope.user = {
-    controller: $cookieStore.get('controller'),
-    name: $cookieStore.get('username')
+    controller: $cookieStore.get('controller') || '',
+    name: $cookieStore.get('username') || ''
   };
 
   $scope.login = function() {
